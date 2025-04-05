@@ -80,7 +80,7 @@ app.post("/api/chat", async (req, res) => {
       model: "openai/gpt-4o", // Specialized for technical analysis
       messages,
       temperature: 0.2, // Lower for more precise technical responses
-      max_tokens: 1500,
+      max_tokens: 3000,
     });
 
     if (!completion.choices?.[0]?.message?.content) {
