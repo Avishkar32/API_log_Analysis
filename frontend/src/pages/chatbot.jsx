@@ -43,13 +43,13 @@ function Chatbot() {
     setInput('');
     
     try {
-      const response = await fetch('http://localhost:5000/api/chat', {
+      const response = await fetch('https://e775-103-3-41-100.ngrok-free.app/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          sessionId,
-          message: input,
-          logs: logs ? logs.split('\n').filter(line => line.trim()) : []
+         
+          "uinput": input,
+          "query": "Get the last 5 logs",
         })
       });
       
@@ -61,7 +61,7 @@ function Chatbot() {
       
       setMessages(prev => [...prev, { 
         role: 'assistant', 
-        content: data.reply
+        content: data.response
       }]);
       setLogs('');
       setIsLogsOpen(false);
